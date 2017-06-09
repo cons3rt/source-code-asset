@@ -21,7 +21,7 @@ Asset description here
 *   ..
 *   ..
 
-## Exit Codes
+## Exit Codes (for install.sh or install.ps1)
 
 *   0 = Asset Installed successfully
 *   1 = Specific error detected

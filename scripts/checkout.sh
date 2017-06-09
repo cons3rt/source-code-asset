@@ -2,28 +2,38 @@
 
 # Sample Asset checkout script
 #
-# Purpose: Perform svn checkout of your source code from
-# software.forge.mil.
+# Purpose: Perform git clone or svn checkout of your source
+# code from DI2E, Github, software.forge.mil, or wherever
+# the source code lives.
 #
-# NOTE: This script runs on the CONS3RT build server
+# NOTE: This script runs on the CONS3RT sourcebuilder
 #
-# In order for CONS3RT to checkout your source code, the
-# "hmcbuildservice" forge user must have access to the svn
-# repository.  One of the following conditions must be true:
-# 1. The svn repository is open to the Software Forge
-#    Community
-# 2. If you have a private svn repository, you'll need to
-#    add the "hmcbuildservice" user as a "Contributor" which
-#    allows the CONS3RT build service to svn checkout your
-#    source code
+# See this article for info about configuring credentials for
+# Forge or DI2E access:
+# https://kb.cons3rt.com/articles/source-code-accounts
+#
+# STDOUT and STDERR will be captured in the Log Viewer in
+# the CONS3RT UI.
+#
 
 # Create the directory in ASSET_DIR to checkout to
 
-mkdir -p ${ASSET_DIR}/src
+/bin/mkdir -p ${ASSET_DIR}/src
+
+# Sample SVN checkout command for a Forge.mil Source Code Repository
 
 # Update the svn checkout URL to your source code repository on Software Forge
 # Its a good idea to use the exit code to tell CONS3RT if the checkout succeeded
 
+/bin/echo "Checking out a source code repository from Subversion on Forge.mil..."
 svn checkout --non-interactive https://svn.forge.mil/svn/repos/cons3rt-sourcecode-sample/HelloWorld ${ASSET_DIR}/src
+result=$?
 
-exit $?
+# Sample GIT checkout command for a DI2E Source Code Repository
+
+/bin/echo "Cloning a source code repository from Git on DI2E..."
+cd ${ASSET_DIR}/src
+git clone ssh://git@bitbucket.di2e.net:7999/hmc/cons3rt-sourcecode-sample.git
+result=$?
+
+exit ${result}

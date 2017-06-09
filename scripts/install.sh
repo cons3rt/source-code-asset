@@ -2,6 +2,9 @@
 
 # Sample Asset Installation Script
 #
+# NOTE: This script executes on YOUR RUN HOST (not the
+# CONS3RT sourcebuilder)
+#
 # Purpose: Automate the installation of your application using
 # your build artifacts.
 #
@@ -14,8 +17,7 @@
 # 2. Update the "installScript" property in asset.properties with
 #    the updated script file name
 #
-# NOTE: This script executes on YOUR DEPLOYED SYSTEM (not the
-# CONS3RT build service)
+
 
 # In this example, we simply copy the jar files to /opt on Linux
 
