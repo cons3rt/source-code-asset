@@ -1,5 +1,9 @@
 # Sample CONS3RT Source Code Asset
 
+# DEPRECATED
+
+## This is no longer a CONS3RT asset type
+
 This is a sample CONS3RT Source Code Asset template you can use to create a Linux asset.  
 
 * Clone this repo as a template to create a new Source Code Asset on Linux.
